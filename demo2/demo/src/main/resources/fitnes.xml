@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="pizzaInfoService" class="by.it_academy.jd2.Mk_JD2_92_22.pizza.service.PizzaInfoService">
+        <constructor-arg name="dao" ref="pizzaInfoDao"/>
+    </bean>
+
+    <bean id="menuService" class="by.it_academy.jd2.Mk_JD2_92_22.pizza.service.MenuService">
+        <constructor-arg name="menuDao" ref="menuDao"/>
+        <constructor-arg name="pizzaInfoService" ref="pizzaInfoService"/>
+    </bean>
+
+    <bean id="menuDao" class="by.it_academy.jd2.Mk_JD2_92_22.pizza.dao.MenuDao">
+        <constructor-arg name="ds" ref="dataSource"/>
+    </bean>
+
+    <bean id="pizzaInfoDao" class="by.it_academy.jd2.Mk_JD2_92_22.pizza.dao.PizzaInfoDao">
+        <constructor-arg name="ds" ref="dataSource"/>
+    </bean>
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="org.postgresql.Driver"/>
+        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5433/FitnesAPP"/>
+        <property name="user" value="postgres"/>
+        <property name="password" value="postgres"/>
+        <property name="minPoolSize" value="5"/>
+        <property name="acquireIncrement" value="5"/>
+        <property name="maxPoolSize" value="20"/>
+        <property name="maxStatements" value="180"/>
+    </bean>
+</beans>
