@@ -1,7 +1,7 @@
 package by.alishev.tasks.day9.task1;
 
 public class Human {
-    private String name;
+ private String name;
 
     public Human(String name) {
         this.name = name;
@@ -17,13 +17,10 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
-                "name='" + name + '\'' +
-                '}';
+        return "name = " + name ;
     }
 
-    public void getInfo(){
-        System.out.println("This human has name " + this.name);
+    public void printInfo(){
+        System.out.println("This human has name : " + getName());
     }
-
 }

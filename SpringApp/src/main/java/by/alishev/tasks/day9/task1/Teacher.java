@@ -1,6 +1,6 @@
 package by.alishev.tasks.day9.task1;
 
-public class Teacher extends Human{
+public class Teacher extends Human {
     private String subjectName;
 
     public Teacher(String name, String subjectName) {
@@ -15,10 +15,8 @@ public class Teacher extends Human{
     public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
     }
-
-    @Override
-    public void getInfo() {
-        super.getInfo();
-        System.out.println("This teacher has name " + getName());
+    public void printInfo(){
+        super.printInfo();
+        System.out.println("This teacher has name : " + getName());
     }
 }

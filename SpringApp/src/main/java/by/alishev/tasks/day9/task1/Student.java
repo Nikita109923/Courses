@@ -15,10 +15,8 @@ public class Student extends Human{
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
-
-    @Override
-    public void getInfo() {
-       super.getInfo();
-        System.out.println("This student has name " + getName());
+    public void printInfo(){
+        super.printInfo();
+        System.out.println("This student has name : " + getName());
     }
 }
