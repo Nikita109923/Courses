@@ -4,7 +4,10 @@ public class Warehouse {
     private int countOrder;
     private int balance;
 
-
+    public Warehouse(int countOrder, int balance) {
+        this.countOrder = countOrder;
+        this.balance = balance;
+    }
 
     public int getCountOrder() {
         return countOrder;
@@ -24,9 +27,8 @@ public class Warehouse {
 
     @Override
     public String toString() {
-        return "Warehouse{" +
-                "countOrder=" + countOrder +
-                ", balance=" + balance +
-                '}';
+        return "Warehouse : " +
+                "countOrder = " + countOrder +
+                ", balance = " + balance ;
     }
 }
