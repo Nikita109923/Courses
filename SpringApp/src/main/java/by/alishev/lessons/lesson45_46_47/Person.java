@@ -1,4 +1,4 @@
-package by.alishev.lessons.lesson45;
+package by.alishev.lessons.lesson45_46_47;
 
 import java.io.Serializable;
 

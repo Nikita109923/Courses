@@ -1,4 +1,4 @@
-package by.alishev.lessons.lesson45;
+package by.alishev.lessons.lesson45_46_47;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,12 +13,7 @@ public class WriteObject {
             FileOutputStream outputStream = new FileOutputStream("people.bin");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
-            objectOutputStream.writeInt(people.length);
-
-            for (Person person : people) {
-                objectOutputStream.writeObject(person);
-            }
-
+            objectOutputStream.writeObject(people);
 
              objectOutputStream.close();
         } catch (IOException e) {
