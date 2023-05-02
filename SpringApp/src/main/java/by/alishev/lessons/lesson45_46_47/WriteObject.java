@@ -6,16 +6,12 @@ import java.io.ObjectOutputStream;
 
 public class WriteObject {
     public static void main(String[] args) {
-        Person [] people = {new Person(1,"Tom"),new Person(2,"Nik"),
-                new Person(3,"Mike")};
+        Person person1 = new Person(1,"Mike");
+        // try  с ресурсами
+        try(ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("people.bin"))) {
 
-        try {
-            FileOutputStream outputStream = new FileOutputStream("people.bin");
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+            objectOutputStream.writeObject(person1);
 
-            objectOutputStream.writeObject(people);
-
-             objectOutputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

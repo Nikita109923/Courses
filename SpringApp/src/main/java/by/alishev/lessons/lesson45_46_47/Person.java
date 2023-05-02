@@ -3,8 +3,8 @@ package by.alishev.lessons.lesson45_46_47;
 import java.io.Serializable;
 
 public class Person implements Serializable {
-    private int id;
-    private String name;
+    private transient int id;
+    private  String name;
 
     public Person(int id, String name) {
         this.id = id;
