@@ -1,4 +1,4 @@
-package by.alishev.lessons.Java_Collections_Framework;
+package by.alishev.lessons.Java_Collections_Framework.ArrayList;
 
 import java.util.ArrayList;
 import java.util.List;
