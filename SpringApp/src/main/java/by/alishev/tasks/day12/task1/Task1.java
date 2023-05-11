@@ -7,21 +7,21 @@ public class Task1 {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
 
-        list.add(0,"Audi");
-        list.add(1,"BMW");
-        list.add(2,"Reno");
-        list.add(3,"Tesla");
-        list.add(4,"Lada");
+        list.add("BMW");
+        list.add("Audi");
+        list.add("Volvo");
+        list.add("Lada");
+        list.add("Tesla");
 
         System.out.println(list);
 
-        list.add(2,"Ford");
-
+        list.add(2, "New Car");
         System.out.println(list);
 
         list.remove(0);
 
         System.out.println(list);
+
     }
 
 }
