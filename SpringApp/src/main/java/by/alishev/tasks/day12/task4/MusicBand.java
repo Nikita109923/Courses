@@ -1,25 +1,17 @@
 package by.alishev.tasks.day12.task4;
 
+
 import java.util.List;
-import java.util.Objects;
 
 public class MusicBand {
-    private String name;
     private int year;
+    private String name;
     private List<String> members;
 
-    public MusicBand(String name, int year, List<String> members) {
-        this.name = name;
+    public MusicBand(int year, String name, List<String> members) {
         this.year = year;
-        this.members = members;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
+        this.members = members;
     }
 
     public int getYear() {
@@ -30,6 +22,14 @@ public class MusicBand {
         this.year = year;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public List<String> getMembers() {
         return members;
     }
@@ -38,22 +38,22 @@ public class MusicBand {
         this.members = members;
     }
 
-    public static void transferMembers(MusicBand a, MusicBand b){
-        for (String member : a.getMembers()) {
-            b.getMembers().add(member);
-        }
-        a.getMembers().clear();
+    // This method transfer List
+
+        public static void transfertMembers(List<String> a, List<String> b){
+        b.addAll(a);
+         a.removeAll(a);
     }
-    public void printMembers(){
-        System.out.println(this.members);
+    public void printMembers() {
+        System.out.println("Members list " + this.name + " " + this.members);
     }
 
 
     @Override
     public String toString() {
         return "MusicBand{" +
-                "name='" + name + '\'' +
-                ", year=" + year +
+                "year=" + year +
+                ", name='" + name + '\'' +
                 ", members=" + members +
                 '}';
     }
