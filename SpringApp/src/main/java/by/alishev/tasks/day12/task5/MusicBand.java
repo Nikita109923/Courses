@@ -1,13 +1,12 @@
-package by.alishev.tasks.day12.task4;
+package by.alishev.tasks.day12.task5;
 
 import java.util.List;
 
-public class MusicBand {
-    private String name;
+public class MusicBand {private String name;
     private int year;
-    private List<String> members;
+    private List<MusicArtist> members;
 
-    public MusicBand(String name, int year, List<String> members) {
+    public MusicBand(String name, int year, List<MusicArtist> members) {
         this.name = name;
         this.year = year;
         this.members = members;
@@ -29,11 +28,11 @@ public class MusicBand {
         this.year = year;
     }
 
-    public List<String> getMembers() {
+    public List<MusicArtist> getMembers() {
         return members;
     }
 
-    public void setMembers(List<String> members) {
+    public void setMembers(List<MusicArtist> members) {
         this.members = members;
     }
 
@@ -46,13 +45,13 @@ public class MusicBand {
                 '}';
     }
 
-    public static void transferMembers(MusicBand bandA, MusicBand bandB){
-        for (String member : bandA.getMembers()) {
-            bandB.getMembers().add(member);
+    public static void transferMembers(MusicBand a, MusicBand b){
+        for (MusicArtist member : a.getMembers()) {
+            b.getMembers().add(member);
         }
-        bandA.getMembers().clear();
-}
-public void printMembers(){
-    System.out.println(this.members);
-}
+        a.getMembers().clear();
+    }
+    public void printMembers(){
+        System.out.println(this.members);
+    }
 }
