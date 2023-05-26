@@ -26,5 +26,5 @@ public class Vector2DTest {
     public void newVectorShouldHaveZeroY() {
         Assert.assertEquals(0, v1.getY(), EPS);
     }
-    
+
 }
