@@ -1,4 +1,4 @@
-package by.alishev.lessons.Multithreading.Producer_consumer.part1;
+package by.alishev.lessons.Multithreading.Producer_consumer;
 
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;

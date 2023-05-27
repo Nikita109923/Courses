@@ -1,16 +1,19 @@
 package by.alishev.lessons.Multithreading.wait_notify;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Test {
+
     public static void main(String[] args) throws InterruptedException {
-        WaitAndNotify wn = new WaitAndNotify();
+        ProducerConsumer pc = new ProducerConsumer();
 
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    wn.produce();
+                    pc.produce();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -20,7 +23,7 @@ public class Test {
             @Override
             public void run() {
                 try {
-                    wn.consume();
+                    pc.consume();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -36,24 +39,38 @@ public class Test {
     }
 }
 
-class WaitAndNotify {
-    public void produce() throws InterruptedException {
-        synchronized (this) {
-            System.out.println("Produce thread started ...");
-            wait();
-            System.out.println("Produce thread resumed ...");
+class ProducerConsumer {
+    private Queue<Integer> queue = new LinkedList();
+    private final int LIMIT = 10;
+    private final Object lock = new Object();
 
+    public void produce() throws InterruptedException {
+        int value = 0;
+        while (true) {
+            synchronized (lock) {
+                while (queue.size() == LIMIT) {
+                    lock.wait();
+                }
+                queue.add(value++);
+                lock.notify();
+            }
         }
     }
 
     public void consume() throws InterruptedException {
-        Thread.sleep(2000);
-        Scanner scanner = new Scanner(System.in);
-        synchronized (this){
-            System.out.println("Waiting for return key passed");
-            scanner.nextLine();
-            notify();
-            Thread.sleep(5000);
+        while (true) {
+            synchronized (lock) {
+                while (queue.size() == 0) {
+                    lock.wait();
+                }
+
+                int value = queue.poll();
+                System.out.println(value);
+                System.out.println("Queue size is : " + queue.size());
+                lock.notify();
+
+            }
+            Thread.sleep(1000);
         }
     }
 }
